@@ -8,6 +8,8 @@ include_once 'src/views/includes/header.php';
 //Page Navbar
 include_once 'src/views/includes/nav.php';
 
+include 'src/models/LoginModel.php';
+
 ?>
 
 <div class="container">
@@ -23,7 +25,7 @@ include_once 'src/views/includes/nav.php';
                 <div class="col-lg my-3">
                     <h4>Cadastrar</h4>
                     <p>Se ainda não tiver uma conta, crie abaixo:</p>
-                    <form action="./src/controllers/cadastro.php" method="POST" class="my-3 form-cadastro">
+                    <form action="#" method="POST" class="my-3 form-cadastro">
                         <input type="hidden" name="_csrf" value=<%= csrfToken %>
                         <div class="form-group">
                           <label>Endereço de Email</label>
@@ -41,7 +43,7 @@ include_once 'src/views/includes/nav.php';
                 <div class="col-lg my-3">
                     <h4>Fazer login</h4>
                     <p>Se já tiver uma conta, faça login abaixo:</p>
-                    <form action="./src/controllers/login.php" method="POST" class="form-login">
+                    <form action="#" method="POST" class="form-login">
                         <div class="form-group">
                           <label>Endereço de Email</label>
                           <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Insira o email" name="email">

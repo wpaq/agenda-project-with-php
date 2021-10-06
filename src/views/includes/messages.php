@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col my-3">
             <div class="alert alert-danger">
-                <?php $arr.forEach($erro => { ?>
+                <?php foreach($erro => { ?>
                     <?php = $erro ?><br>
                 <?php }); ?>
             </div>

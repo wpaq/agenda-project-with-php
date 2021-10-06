@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 $host = 'localhost';
 $dbname = 'mybd';
 $username = 'root';

@@ -8,6 +8,8 @@ include_once 'src/views/includes/header.php';
 //Page Navbar
 include_once 'src/views/includes/nav.php';
 
+include 'src/models/LoginModel.php';
+
 include_once 'testeCont.php';
 if(isset($_SESSION['email'])) {
     $logado = $_SESSION['email'];
