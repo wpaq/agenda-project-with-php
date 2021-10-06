@@ -1,7 +1,7 @@
 <?php
 
 require_once 'connection.php';
-include 'LoginModel.php';
+include 'errors.php';
 
 if(isset($_POST['cadastro'])){
     $email = $_POST['email'];

@@ -16,8 +16,7 @@ if(isset($_POST['login'])){
         $_SESSION['email'] = $info['email']; 
         $_SESSION['senha'] = $info['senha'];
 
-        header("Location: /phpStudy/index.php");
-        die();
+        header("Location: ../../index.php");
     }else {
         echo '<div class="box_erro_login"><p><i class="fas fa-exclamation-circle"></i> Usuário ou senha incorretos!</p></div>';
     }

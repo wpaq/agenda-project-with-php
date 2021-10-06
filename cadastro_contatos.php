@@ -2,6 +2,7 @@
 
 //Connection DB
 require_once 'src/controllers/connection.php';
+require_once 'src/controllers/cadastro_contatos.php';
 
 //Page Header
 include_once 'src/views/includes/header.php';
@@ -18,27 +19,24 @@ include_once 'src/views/includes/nav.php';
             <h1 class=" text-center">Contato</h1>
             <p class="text-center lead">Crie ou edite seu contato abaixo</p>
 
-            <form action="/contato/edit/<%= contato._id %>" method="POST" class="my-3">
-
-            <form action="/contato/register" method="POST" class="my-3">
-                <input type="hidden" name="_csrf" value=<%= csrfToken %>
+            <form action="./src/controllers/cadastro_contatos.php" method="POST" class="my-3">
                 <div class="form-group">
                     <label>Nome:</label>
-                    <input type="text" class="form-control" name="nome" value="<%= contato.nome %>">
+                    <input type="text" class="form-control" name="nome" value="<?php echo $_SESSION['email']; ?>">
                 </div>
                 <div class="form-group">
                     <label>Sobrenome:</label>
-                    <input type="text" class="form-control"  name="sobrenome" value="<%= contato.sobrenome %>">
+                    <input type="text" class="form-control"  name="sobrenome" value="">
                 </div>
                 <div class="form-group">
                     <label>Email:</label>
-                    <input type="email" class="form-control" name="email" value="<%= contato.email %>">
+                    <input type="email" class="form-control" name="email" value="">
                 </div>
                 <div class="form-group">
                     <label>Telefone:</label>
-                    <input type="tel" class="form-control" name="telefone" value="<%= contato.telefone %>">
+                    <input type="tel" class="form-control" name="telefone" value="">
                 </div>
-                <button type="submit" class="btn btn-primary my-2">Salvar</button>
+                <button type="submit" name="sendContato" class="btn btn-primary my-2">Salvar</button>
             </form>
         </div>
 
