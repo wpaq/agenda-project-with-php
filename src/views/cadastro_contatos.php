@@ -1,13 +1,16 @@
 <?php
 
 //Connection DB
-require_once 'src/controllers/connection.php';
-require_once 'src/controllers/cadastro_contatos.php';
+require_once __DIR__.'/src/models/ConnectionModel.php';
+$db = new DBConnection();
+$conn = $db->startConnection();
+
+require_once '/projeto_agenda_php/src/controllers/cadastro_contatos.php';
 
 //Page Header
-include_once 'src/views/includes/header.php';
+include_once '/projeto_agenda_php/src/views/includes/header.php';
 //Page Navbar
-include_once 'src/views/includes/nav.php';
+include_once '/projeto_agenda_php/src/views/includes/nav.php';
 
 ?>
 
@@ -47,6 +50,6 @@ include_once 'src/views/includes/nav.php';
 <?php
 
 //Page Footer
-include_once 'src/views/includes/footer.php';
+include_once '/projeto_agenda_php/src/views/includes/footer.php';
 
 ?>

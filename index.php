@@ -1,16 +1,17 @@
 <?php
 
 //Connection DB
-require_once 'src/controllers/connection.php';
+require_once 'src/models/ConnectionModel.php';
 
 //Page Header
 include_once 'src/views/includes/header.php';
 //Page Navbar
 include_once 'src/views/includes/nav.php';
 
+//Login Model
 include 'src/models/LoginModel.php';
 
-include_once 'testeCont.php';
+include_once 'src/views/testeCont.php';
 if(isset($_SESSION['email'])) {
     $logado = $_SESSION['email'];
     echo "Bem vindo: $logado";

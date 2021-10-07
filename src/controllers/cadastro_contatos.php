@@ -1,6 +1,6 @@
 <?php
 
-require_once 'connection.php';
+require_once '/projeto_agenda_php/src/models/ConnectionModel.php';
 include 'errors.php';
 
 //Verifica se o usuário está logado

@@ -1,14 +1,14 @@
 <?php
 
 //Connection DB
-require_once 'src/controllers/connection.php';
+require_once '../models/ConnectionModel.php';
 
 //Page Header
-include_once 'src/views/includes/header.php';
+include_once 'includes/header.php';
 //Page Navbar
-include_once 'src/views/includes/nav.php';
+include_once 'includes/nav.php';
 
-include 'src/models/LoginModel.php';
+include '../models/LoginModel.php';
 
 ?>
 
@@ -65,6 +65,6 @@ include 'src/models/LoginModel.php';
 <?php
 
 //Page Footer
-include_once 'src/views/includes/footer.php';
+include_once 'includes/footer.php';
 
 ?>

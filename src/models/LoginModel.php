@@ -47,15 +47,23 @@ class Login {
 
             if(!empty($this->errors)) { return; }
 
-            if($this->usersExists($_POST['email'], $this->conn) == 0) {
-                array_push($this->errors, 'Usuário não existe');
-                return;
-            }
+            $sql = $this->conn->prepare('SELECT email, senha from users WHERE email = :email');
+            $sql->bindParam(':email', $_POST['email']);
+            $sql->execute();
 
-            if(password_verify($_POST['senha'], $info['senha'])){
+            if($sql->rowCount() > 0){
+                $info = $sql->fetch();
 
-            }
-            
+                if(password_verify($_POST['senha'], $info['senha'])){
+                    $_SESSION['email'] = $info['email']; 
+                    $_SESSION['senha'] = $info['senha'];
+                    header("Location: ./index.php");
+                } else {
+                    array_push($this->errors, 'Usuário ou senha incorretos');
+                }            
+            } else {
+                array_push($this->errors, 'Usuário ou senha incorretos');
+            }  
         }
     }
 
@@ -66,8 +74,6 @@ class Login {
         
         if($verifyEmail->rowCount() > 0) {
             array_push($this->errors, 'Usuário já existe');
-        } else {
-            return 0;
         }
     }
 
