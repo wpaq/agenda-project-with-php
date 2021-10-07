@@ -1,5 +1,4 @@
-  <?php //include_once 'src/controllers/deslogar.php'; ?>  
-  
+    
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="/projeto_agenda_php/index.php">Agenda</a>

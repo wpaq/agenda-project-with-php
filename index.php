@@ -5,11 +5,11 @@ require_once 'src/models/ConnectionModel.php';
 
 //Page Header
 include_once 'src/views/includes/header.php';
+
 //Page Navbar
 include_once 'src/views/includes/nav.php';
 
-//Login Model
-include 'src/models/LoginModel.php';
+include_once 'src\controllers\loginController.php';
 
 include_once 'src/views/testeCont.php';
 if(isset($_SESSION['email'])) {

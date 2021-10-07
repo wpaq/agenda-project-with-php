@@ -3,12 +3,15 @@
 //Connection DB
 require_once '../models/ConnectionModel.php';
 
+
 //Page Header
 include_once 'includes/header.php';
 //Page Navbar
 include_once 'includes/nav.php';
+include '../controllers/loginController.php';
 
-include '../models/LoginModel.php';
+//include '../models/LoginModel.php';
+//include '../controllers/loginController.php';
 
 ?>
 
@@ -19,6 +22,8 @@ include '../models/LoginModel.php';
         <div class="col-lg-8 my-3">
             <h1 class=" text-center">Criar conta ou entrar</h1>
             <p class="text-center lead">Faça login ou crie sua conta abaixo</p>
+
+            <?php include 'includes/messages.php'; ?>
 
             <div class="row">
                 <!--Cadastro-->

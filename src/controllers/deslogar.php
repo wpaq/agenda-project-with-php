@@ -1,6 +1,4 @@
 <?php
-//Connection DB
-require_once 'connection.php';
 
 if(isset($_GET['logout'])) {
     deslogar();    

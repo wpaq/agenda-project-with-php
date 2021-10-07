@@ -1,26 +1,21 @@
-<?php include_once './src/controllers/errors.php'; ?>
+<?php 
+
+require_once '../models/LoginModel.php';
+
+$login = new Login();
+?>
 
 
-<?php if($arr.count() > 0) { ?>
+<?php if(count($login->errors) > 0) { ?>
     <div class="row">
         <div class="col my-3">
             <div class="alert alert-danger">
-                <?php foreach($erro => { ?>
-                    <?php = $erro ?><br>
-                <?php }); ?>
+                <?php foreach($login->errors as $erro) { ?>
+                    <?php print_r($erro); echo 'aaa'; ?><br>
+                <?php } ?>
             </div>
         </div>
     </div>
 <?php } ?>
 
-<?php if(success.length > 0) { ?>
-    <div class="row">
-        <div class="col my-3">
-            <div class="alert alert-success">
-                <?php success.forEach(success => { ?>
-                    <?php= success ?><br>
-                <?php }); ?>
-            </div>
-        </div>
-    </div>
-<?php } ?>
+

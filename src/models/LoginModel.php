@@ -9,8 +9,6 @@ class Login {
         $this->connEnd = $this->db->endConnection();
 
         $this->errors = array();
-        $this->register();
-        $this->login();
         print_r($this->errors);        
     }
 
@@ -41,30 +39,28 @@ class Login {
         }
     }
 
-    function login() {
-        if(isset($_POST['login'])) {
-            $this->valida($_POST['email'], $_POST['senha']);
+    function login($email, $senha) {
+        $this->valida($email, $senha);
 
-            if(!empty($this->errors)) { return; }
+        if(!empty($this->errors)) { return; }
 
-            $sql = $this->conn->prepare('SELECT email, senha from users WHERE email = :email');
-            $sql->bindParam(':email', $_POST['email']);
-            $sql->execute();
+        $sql = $this->conn->prepare('SELECT email, senha from users WHERE email = :email');
+        $sql->bindParam(':email', $email);
+        $sql->execute();
 
-            if($sql->rowCount() > 0){
-                $info = $sql->fetch();
+        if($sql->rowCount() > 0){
+            $info = $sql->fetch();
 
-                if(password_verify($_POST['senha'], $info['senha'])){
-                    $_SESSION['email'] = $info['email']; 
-                    $_SESSION['senha'] = $info['senha'];
-                    header("Location: ./index.php");
-                } else {
-                    array_push($this->errors, 'Usuário ou senha incorretos');
-                }            
+            if(password_verify($senha, $info['senha'])){
+                $_SESSION['email'] = $info['email']; 
+                $_SESSION['senha'] = $info['senha'];
+                header("Location: ../../index.php");
             } else {
                 array_push($this->errors, 'Usuário ou senha incorretos');
-            }  
-        }
+            }            
+        } else {
+            array_push($this->errors, 'Usuário ou senha incorretos');
+        }  
     }
 
     function usersExists($email, $conn) {
@@ -88,8 +84,7 @@ class Login {
             array_push($this->errors, 'A senha precisa ter entre 3 e 50 caracteres');
         }
     }
-}
 
-$login = new Login();
+}
 
 ?>
