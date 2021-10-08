@@ -1,17 +1,11 @@
 <?php
 
-//Connection DB
-require_once '../models/ConnectionModel.php';
-
+include_once 'F:\Programs\xampp\htdocs\projeto_agenda_php\routers.php';
 
 //Page Header
 include_once 'includes/header.php';
 //Page Navbar
 include_once 'includes/nav.php';
-include '../controllers/loginController.php';
-
-//include '../models/LoginModel.php';
-//include '../controllers/loginController.php';
 
 ?>
 
@@ -23,7 +17,7 @@ include '../controllers/loginController.php';
             <h1 class=" text-center">Criar conta ou entrar</h1>
             <p class="text-center lead">Faça login ou crie sua conta abaixo</p>
 
-            <?php include 'includes/messages.php'; ?>
+            <?php //include 'includes/messages.php'; ?>
 
             <div class="row">
                 <!--Cadastro-->
@@ -40,7 +34,7 @@ include '../controllers/loginController.php';
                           <label>Senha</label>
                           <input type="password" class="form-control" placeholder="Insira a senha" name="senha">
                         </div>
-                        <button type="submit" name="cadastro" class="btn btn-primary my-2">Criar conta</button>
+                        <button type="submit" name="register" class="btn btn-primary my-2">Criar conta</button>
                       </form>
                 </div>
                 

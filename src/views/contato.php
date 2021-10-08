@@ -1,16 +1,11 @@
 <?php
 
-//Connection DB
-require_once __DIR__.'/src/models/ConnectionModel.php';
-$db = new DBConnection();
-$conn = $db->startConnection();
-
-require_once '/projeto_agenda_php/src/controllers/cadastro_contatos.php';
+include 'F:\Programs\xampp\htdocs\projeto_agenda_php\routers.php';
 
 //Page Header
-include_once '/projeto_agenda_php/src/views/includes/header.php';
+include_once 'includes/header.php';
 //Page Navbar
-include_once '/projeto_agenda_php/src/views/includes/nav.php';
+include_once 'includes/nav.php';
 
 ?>
 
@@ -22,7 +17,7 @@ include_once '/projeto_agenda_php/src/views/includes/nav.php';
             <h1 class=" text-center">Contato</h1>
             <p class="text-center lead">Crie ou edite seu contato abaixo</p>
 
-            <form action="./src/controllers/cadastro_contatos.php" method="POST" class="my-3">
+            <form action="#" method="POST" class="my-3">
                 <div class="form-group">
                     <label>Nome:</label>
                     <input type="text" class="form-control" name="nome" value="<?php echo $_SESSION['email']; ?>">
@@ -50,6 +45,6 @@ include_once '/projeto_agenda_php/src/views/includes/nav.php';
 <?php
 
 //Page Footer
-include_once '/projeto_agenda_php/src/views/includes/footer.php';
+include_once 'includes/footer.php';
 
 ?>

@@ -1,11 +1,6 @@
 <?php
-require_once './src/controllers/connection.php';
+require_once 'src\models\ContatoModel.php';
 
-$contatos = $pdo->prepare("SELECT * FROM contatos");
-$contatos->execute();
 
-if(empty($contatos->rowCount())) {
-       echo 'Nenhum contato encontrado';
-}
 
 ?>

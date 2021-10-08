@@ -1,15 +1,18 @@
 <?php
 
-require_once '../models/ConnectionModel.php';
-require_once '../models/LoginModel.php';
+require_once 'F:\Programs\xampp\htdocs\projeto_agenda_php\src\models\LoginModel.php';
 
-if(isset($_POST['login'])) {
+function loginIndex() {
+    header('Location: \projeto_agenda_php\src\views\login.php');
+}
+
+function login() {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
     try {
-        $login = new Login();
-        $login->login($email, $senha);
+        $login = new Login($email, $senha);
+        $login->login();
     
         if(count($login->errors) > 0) {
             print_r($login->errors);
@@ -25,8 +28,26 @@ if(isset($_POST['login'])) {
     }
 }
 
-if(isset($_GET['logout'])) {
-    deslogar();    
+function register() {
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    try {
+        $loginRegister = new Login($email, $senha);
+        $loginRegister->register();
+    
+        if(count($loginRegister->errors) > 0) {
+            print_r($loginRegister->errors);
+            return;
+        }
+    
+        //echo 'Usuário Cadastrado com sucesso';
+        $_SESSION['email'] = $email;
+        $_SESSION['senha'] = $senha;
+
+    } catch(Exception $e) {
+        echo 'Error: ' . $e->getMessage();
+    }
 }
 
 function deslogar() {

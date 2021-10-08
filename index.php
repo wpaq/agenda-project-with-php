@@ -1,17 +1,19 @@
 <?php
 
 //Connection DB
-require_once 'src/models/ConnectionModel.php';
+require_once 'src\models\ConnectionModel.php';
+//rotas
+include './routers.php';
+//include 'F:\Programs\xampp\htdocs\projeto_agenda_php\src\controllers\contatoController.php';
 
 //Page Header
 include_once 'src/views/includes/header.php';
-
 //Page Navbar
 include_once 'src/views/includes/nav.php';
 
-include_once 'src\controllers\loginController.php';
+include 'src\models\HomeModel.php';
 
-include_once 'src/views/testeCont.php';
+
 if(isset($_SESSION['email'])) {
     $logado = $_SESSION['email'];
     echo "Bem vindo: $logado";
@@ -29,10 +31,10 @@ if(isset($_SESSION['email'])) {
 
                 <?php //include('./src/views/includes/messages') ?>
 
-                <?php if(!empty($contatos->rowCount())) { ?>
+                <?php if(!empty($contato->rowCount())) { ?>
                     <div class="responsive-table">
                         <table class="table my-3">
-                            <?php foreach($contatos as $value) { ?>
+                            <?php foreach($contato as $value) { ?>
                             <tr>
                                 <td id="contato_nome"><?php echo $value['nome'] ?></td>
                                 <td id="contato_sobrenome"><?php echo $value['sobrenome'] ?></td>

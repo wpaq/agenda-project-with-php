@@ -1,11 +1,3 @@
-<?php 
-
-require_once '../models/LoginModel.php';
-
-$login = new Login();
-?>
-
-
 <?php if(count($login->errors) > 0) { ?>
     <div class="row">
         <div class="col my-3">
