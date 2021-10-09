@@ -3,8 +3,12 @@
 require_once 'F:\Programs\xampp\htdocs\projeto_agenda_php\src\models\ContatoModel.php';
 
 function contatoIndex() {
+    $errors = array();
     if(isset($_SESSION['email'])) {
         header('Location: \projeto_agenda_php\src\views\contato.php');
+    } else {
+        array_push($errors,'Usuário precisa estar logado');
+        return $errors;
     }
 }
 
@@ -19,8 +23,7 @@ function contatoRegister() {
         $contato->register();
     
         if(count($contato->errors) > 0) {
-            print_r($contato->errors);
-            return;
+            return $contato->errors;
         }
 
     } catch(Exception $e) {
@@ -28,18 +31,15 @@ function contatoRegister() {
     }
 }
 
-buscaContatos();
 function buscaContatos() {
     try {
         $contato = new Contato('','', '', '');
-        $contato->buscaContatos();
+        $dados = $contato->buscaContatos();        
     
         if(count($contato->errors) > 0) {
-            print_r($contato->errors);
-            return;
+            return $contato->errors;
         }
-
-        return $contato;
+        return $dados;
 
     } catch(Exception $e) {
         echo 'Error: ' . $e->getMessage();

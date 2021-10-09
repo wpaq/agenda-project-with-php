@@ -4,35 +4,38 @@ $loginController = require 'src\controllers\loginController.php';
 $contatoController = require('src\controllers\contatoController.php');
 
 
+$contatos = buscaContatos();
+$errors = array();
+
 //home routers
 if(isset($_GET['indexHome'])) {
-    indexHome();
+    $errors = indexHome();
 }
 
 // login routers
 if(isset($_GET['loginIndex'])) {
-    loginIndex();
+    $errors = loginIndex();
 }
 
 if(isset($_POST['register'])) {
-    register();
+    $errors = register();
 }
 
 if(isset($_POST['login'])) {
-    login();
+    $errors = login();
 }
 
 if(isset($_GET['logout'])) {
-    deslogar();
+    $errors = deslogar();
 }
 
 // contato routers
 if(isset($_GET['contatoIndex'])) {
-    contatoIndex();
+    $errors = contatoIndex();
 }
 
 if(isset($_POST['sendContato'])) {
-    contatoRegister();
+    $errors = contatoRegister();
 }
 
 

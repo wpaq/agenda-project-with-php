@@ -48,11 +48,13 @@ class Contato {
         $contatos = $this->connStart->prepare("SELECT * FROM contatos");
         $contatos->execute();
 
+        $dados = $contatos->fetchAll(PDO::FETCH_ASSOC);
+
         if(empty($contatos->rowCount())) {
             array_push($this->errors,'Nenhum contato encontrado');
             $this->connEnd;
         }
-        return $contatos; 
+        return $dados; 
     }
 
 }

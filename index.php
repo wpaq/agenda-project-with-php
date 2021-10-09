@@ -1,17 +1,11 @@
 <?php
 
-//Connection DB
-require_once 'src\models\ConnectionModel.php';
-//rotas
 include './routers.php';
-//include 'F:\Programs\xampp\htdocs\projeto_agenda_php\src\controllers\contatoController.php';
 
 //Page Header
 include_once 'src/views/includes/header.php';
 //Page Navbar
 include_once 'src/views/includes/nav.php';
-
-include 'src\models\HomeModel.php';
 
 
 if(isset($_SESSION['email'])) {
@@ -26,15 +20,15 @@ if(isset($_SESSION['email'])) {
             <div class="col-lg-2"></div>
 
             <div class="col-lg-8 my-3">
-                <h1 class=" text-center">Agenda</h1>
+                <?php if(isset($_GET['contatoIndex'])) { include 'F:\Programs\xampp\htdocs\projeto_agenda_php\src\views\includes\messages.php'; } ?>
+
+                <h1 class="text-center">Agenda</h1>
                 <p class="text-center lead">Seus contatos estão abaixo</p>
 
-                <?php //include('./src/views/includes/messages') ?>
-
-                <?php if(!empty($contato->rowCount())) { ?>
+                <?php if(!empty($contatos)) { ?>
                     <div class="responsive-table">
                         <table class="table my-3">
-                            <?php foreach($contato as $value) { ?>
+                            <?php foreach($contatos as $value) { ?>
                             <tr>
                                 <td id="contato_nome"><?php echo $value['nome'] ?></td>
                                 <td id="contato_sobrenome"><?php echo $value['sobrenome'] ?></td>

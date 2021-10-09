@@ -1,13 +1,11 @@
-<?php if(count($login->errors) > 0) { ?>
+<?php if(!empty($errors)) { ?>
     <div class="row">
         <div class="col my-3">
             <div class="alert alert-danger">
-                <?php foreach($login->errors as $erro) { ?>
-                    <?php print_r($erro); echo 'aaa'; ?><br>
+                <?php foreach($errors as $erro) { ?>
+                    <?php  echo $erro; ?><br>
                 <?php } ?>
             </div>
         </div>
     </div>
-<?php } ?>
-
-
+<?php } else unset($errors); ?>

@@ -15,8 +15,7 @@ function login() {
         $login->login();
     
         if(count($login->errors) > 0) {
-            print_r($login->errors);
-            return;
+            return $login->errors;
         }
     
         //echo 'Usuário Logado com sucesso';
@@ -37,8 +36,7 @@ function register() {
         $loginRegister->register();
     
         if(count($loginRegister->errors) > 0) {
-            print_r($loginRegister->errors);
-            return;
+            return $loginRegister->errors; 
         }
     
         //echo 'Usuário Cadastrado com sucesso';
