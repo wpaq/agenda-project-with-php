@@ -26,20 +26,23 @@ if(isset($_SESSION['email'])) {
                 <p class="text-center lead">Seus contatos estão abaixo</p>
 
                 <?php if(!empty($contatos)) { ?>
-                    <div class="responsive-table">
-                        <table class="table my-3">
-                            <?php foreach($contatos as $value) { ?>
-                            <tr>
-                                <td id="contato_nome"><?php echo $value['nome'] ?></td>
-                                <td id="contato_sobrenome"><?php echo $value['sobrenome'] ?></td>
-                                <td id="contato_telefone"><?php echo $value['telefone']; ?></td>
-                                <td id="contato_email"><?php echo $value['email']; ?></td>                                
-                                <td><a href="\projeto_agenda_php\src\views\contato.php?buscaPorId">Editar</a></td>
-                                <td><a class="text-danger" href="/contato/delete/<%= contato._id %>">Excluir</a></td>
-                            </tr>
-                            <?php } ?>
-                        </table>
-                    </div>
+                    <form action="#" method="POST" class="my-3">
+                        <div class="responsive-table">
+                            <table class="table my-3">
+                                <?php foreach($contatos as $value) { ?>
+                                <tr>
+                                    <td id="contato_nome"><?php echo $value['nome'] ?></td>
+                                    <td id="contato_sobrenome"><?php echo $value['sobrenome'] ?></td>
+                                    <td id="contato_telefone"><?php echo $value['telefone']; ?></td>
+                                    <td id="contato_email"><?php echo $value['email']; ?></td>
+                                    <input type="hidden" name="id" value="<?php $value['id_contatos'] ?>">                              
+                                    <td><button type="submit" name="buscaPorId=<?php $value['id_contatos'] ?>" class="btn btn-primary my-2">Editar</button></td>
+                                    <td><button type="submit" class="text-danger" id="<?php $value['id_contatos'] ?>" name="deleteContato" class="btn btn-primary my-2">Excluir</button></td>
+                                </tr>
+                                <?php } ?>
+                            </table>
+                        </div>
+                    </form>
                 <?php } else { ?>
                     <p class="text-center lead">Não existem contatos na sua agenda.</p>
                 <?php } ?>

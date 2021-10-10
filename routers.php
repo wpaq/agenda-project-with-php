@@ -5,9 +5,9 @@ $contatoController = require('src\controllers\contatoController.php');
 
 $contatos = buscaContatos();
 
+
 $errors = array();
 $idContato = array();
-$id = 2;
 
 
 //home routers
@@ -41,10 +41,15 @@ if(isset($_POST['sendContato'])) {
     $errors = contatoRegister();
 }
 
-if(isset($_GET['buscaPorId'])) {    
+if(isset($_POST['buscaPorId'])) {  
+    $id = $_POST['buscaPorId'];
+    echo $id;
+
+    echo 'aaaaa'; 
     $errors = contatoIndex();
-    $errors = buscaPorId(2);
-    $idContato = buscaPorId(2);
+    $idContato = buscaPorId($id);
+    print_r($idContato);
+    
 }
 
 ?>
