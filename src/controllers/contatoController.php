@@ -46,4 +46,20 @@ function buscaContatos() {
     }
 }
 
+function buscaPorId($id) {
+    try {
+        $contato = new Contato('','', '', '');
+        $dados = $contato->buscaPorId($id);        
+    
+        if(count($contato->errors) > 0) {
+            return $contato->errors;
+        }
+        print_r($dados);
+        return $dados;
+
+    } catch(Exception $e) {
+        echo 'Error: ' . $e->getMessage();
+    }
+}
+
 ?>

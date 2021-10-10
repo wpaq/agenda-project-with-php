@@ -57,6 +57,20 @@ class Contato {
         return $dados; 
     }
 
+    function buscaPorId($id) {
+        $contatos = $this->connStart->prepare("SELECT * FROM contatos WHERE id_contatos = :id");
+        $contatos->bindParam(':id', $id);
+        $contatos->execute();
+
+        $dados = $contatos->fetchAll(PDO::FETCH_ASSOC);
+
+        if(empty($contatos->rowCount())) {
+            array_push($this->errors,'Nenhum contato encontrado');
+            $this->connEnd;
+        }
+        return $dados; 
+    }
+
 }
 
 ?>

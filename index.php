@@ -34,7 +34,7 @@ if(isset($_SESSION['email'])) {
                                 <td id="contato_sobrenome"><?php echo $value['sobrenome'] ?></td>
                                 <td id="contato_telefone"><?php echo $value['telefone']; ?></td>
                                 <td id="contato_email"><?php echo $value['email']; ?></td>                                
-                                <td><a href="./cadastro_contatos.php">Editar</a></td>
+                                <td><a href="\projeto_agenda_php\src\views\contato.php?buscaPorId">Editar</a></td>
                                 <td><a class="text-danger" href="/contato/delete/<%= contato._id %>">Excluir</a></td>
                             </tr>
                             <?php } ?>
