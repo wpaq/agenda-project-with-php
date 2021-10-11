@@ -5,9 +5,8 @@ $contatoController = require('src\controllers\contatoController.php');
 
 $contatos = buscaContatos();
 
-
-$errors = array();
-$idContato = array();
+$idContatos;
+$errors;
 
 
 //home routers
@@ -41,15 +40,16 @@ if(isset($_POST['sendContato'])) {
     $errors = contatoRegister();
 }
 
-if(isset($_POST['buscaPorId'])) {  
-    $id = $_POST['buscaPorId'];
-    echo $id;
-
-    echo 'aaaaa'; 
-    $errors = contatoIndex();
-    $idContato = buscaPorId($id);
-    print_r($idContato);
+if(isset($_GET['buscaPorId'])) {  
+    $id = $_GET['buscaPorId'];
     
+    if(isset($_SESSION['email'])) {
+        $idContatos = buscaPorId($id);
+    } else {
+        $errors = contatoIndex();
+        header('Location: \projeto_agenda_php\index.php');
+    }
+        
 }
 
 ?>

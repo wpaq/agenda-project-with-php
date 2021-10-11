@@ -13,8 +13,7 @@ class Contato {
         $this->email = $email;
         $this->telefone = $telefone;
 
-        $this->errors = array();
-        print_r($this->errors);        
+        $this->errors = array();        
     }
 
     function register() {

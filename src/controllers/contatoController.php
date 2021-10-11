@@ -54,6 +54,11 @@ function buscaPorId($id) {
         if(count($contato->errors) > 0) {
             return $contato->errors;
         }
+        foreach($dados as $contatos) {
+            $nome = $contatos['nome'];
+            $sobrenome = $contatos['sobrenome'];
+        }
+        echo $nome;
         print_r($dados);
         return $dados;
 
