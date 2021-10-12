@@ -20,7 +20,7 @@ if(isset($_SESSION['email'])) {
             <div class="col-lg-2"></div>
 
             <div class="col-lg-8 my-3">
-                <?php if(isset($_GET['contatoIndex']) or isset($_GET['buscaPorId'])) { include 'F:\Programs\xampp\htdocs\projeto_agenda_php\src\views\includes\messages.php'; } ?>
+                <?php include 'F:\Programs\xampp\htdocs\projeto_agenda_php\src\views\includes\messages.php'; ?>
 
                 <h1 class="text-center">Agenda</h1>
                 <p class="text-center lead">Seus contatos estão abaixo</p>
@@ -36,7 +36,7 @@ if(isset($_SESSION['email'])) {
                                     <td id="contato_telefone"><?php echo $value['telefone']; ?></td>
                                     <td id="contato_email"><?php echo $value['email']; ?></td>
                                     <td><a href="\projeto_agenda_php\src\views\contato.php?buscaPorId=<?php echo $value['id_contatos'];?>">Editar</a></td>
-                                    <td><button type="submit" class="text-danger" id="<?php $value['id_contatos'] ?>" name="deleteContato" class="btn btn-primary my-2">Excluir</button></td>
+                                    <td><a href="?deleteContato=<?php echo $value['id_contatos'];?>">Excluir</a></td>
                                 </tr>
                                 <?php } ?>
                             </table>

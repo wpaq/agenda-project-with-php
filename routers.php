@@ -5,10 +5,6 @@ $contatoController = require('src\controllers\contatoController.php');
 
 $contatos = buscaContatos();
 
-$idContatos;
-$errors;
-
-
 //home routers
 if(isset($_GET['indexHome'])) {
     $errors = indexHome();
@@ -40,16 +36,30 @@ if(isset($_POST['sendContato'])) {
     $errors = contatoRegister();
 }
 
-if(isset($_GET['buscaPorId'])) {  
-    $id = $_GET['buscaPorId'];
-    
-    if(isset($_SESSION['email'])) {
-        $idContatos = buscaPorId($id);
+if(isset($_POST['updateContato'])) {
+    $errors = contatoUpdate();
+    $sucess = contatoUpdate();       
+}
+
+if(isset($_GET['deleteContato'])) {
+    $errors = array();
+
+    if(!isset($_SESSION['email'])) {
+        array_push($errors, 'Usuário precisa estar logado');
     } else {
-        $errors = contatoIndex();
-        header('Location: \projeto_agenda_php\index.php');
-    }
-        
+        $sucess = deleteContato();
+    }   
+}
+
+if(isset($_GET['buscaPorId'])) {
+    $id = $_GET['buscaPorId'];  
+    $errors = array();
+
+    if(isset($_SESSION['email'])) {
+        $idContatos = buscaPorId();
+    } else {
+        array_push($errors,'Usuário precisa estar logado');
+    }       
 }
 
 ?>

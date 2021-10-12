@@ -4,6 +4,7 @@ require_once 'F:\Programs\xampp\htdocs\projeto_agenda_php\src\models\ContatoMode
 
 function contatoIndex() {
     $errors = array();
+
     if(isset($_SESSION['email'])) {
         header('Location: \projeto_agenda_php\src\views\contato.php');
     } else {
@@ -31,6 +32,28 @@ function contatoRegister() {
     }
 }
 
+function contatoUpdate() {
+    $nome = $_POST['nome'];
+    $sobrenome = $_POST['sobrenome'];
+    $email = $_POST['email'];
+    $telefone = $_POST['telefone'];
+    $id = $_GET['buscaPorId'];
+
+    try {
+        $contato = new Contato($nome, $sobrenome, $email, $telefone);
+        $contato->update($id);
+    
+        if(count($contato->errors) > 0) {
+            return $contato->errors;
+        } else {
+            return $contato->sucess;
+        }
+
+    } catch(Exception $e) {
+        echo 'Error: ' . $e->getMessage();
+    }
+}
+
 function buscaContatos() {
     try {
         $contato = new Contato('','', '', '');
@@ -46,7 +69,9 @@ function buscaContatos() {
     }
 }
 
-function buscaPorId($id) {
+function buscaPorId() {
+    $id = $_GET['buscaPorId'];
+
     try {
         $contato = new Contato('','', '', '');
         $dados = $contato->buscaPorId($id);        
@@ -54,14 +79,25 @@ function buscaPorId($id) {
         if(count($contato->errors) > 0) {
             return $contato->errors;
         }
-        foreach($dados as $contatos) {
-            $nome = $contatos['nome'];
-            $sobrenome = $contatos['sobrenome'];
-        }
-        echo $nome;
-        print_r($dados);
         return $dados;
 
+    } catch(Exception $e) {
+        echo 'Error: ' . $e->getMessage();
+    }
+}
+
+function deleteContato() {
+    $id = $_GET['deleteContato'];
+
+    try {
+        $contato = new Contato('', '', '', '');
+        $contato->delete($id);
+    
+        if(count($contato->errors) > 0) {
+            return $contato->errors;
+        } else {
+            return $contato->sucess;
+        }
     } catch(Exception $e) {
         echo 'Error: ' . $e->getMessage();
     }
