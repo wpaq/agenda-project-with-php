@@ -13,7 +13,6 @@ if(!isset($_SESSION['email'])) {
     //Verifica se não existem erros
     if(!empty($errors)) {
         header('Location: \projeto_agenda_php\index.php');
-        return $errors;
     }
 }
 
