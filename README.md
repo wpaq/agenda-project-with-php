@@ -34,10 +34,13 @@ Feito com ❤️ por Wallyson Pablo -- Entre em contato!
 [![Gmail Badge](https://img.shields.io/badge/-wallysonpabloo@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:wallysonpabloo@gmail.com)](mailto:wallysonpabloo@gmail.com)
 
 ### Demo
-<h2>User Page</h2>
-<img src="https://github.com/wpaq/MeAche/blob/main/MeAche/resources/_img/userPage.JPG">
+<h2>Home Page</h2>
+<img src="https://github.com/wpaq/projeto_agenda_php/blob/main/src/uplouds/home.png">
 
-<h2>Admin Page</h2>
-<img src="https://github.com/wpaq/MeAche/blob/main/MeAche/resources/_img/adminPage.JPG">
+<h2>Login Page</h2>
+<img src="https://github.com/wpaq/projeto_agenda_php/blob/main/src/uplouds/login.png">
+
+<h2>Update Page</h2>
+<img src="https://github.com/wpaq/projeto_agenda_php/blob/main/src/uplouds/update.png">
 
 
